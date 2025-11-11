@@ -2,6 +2,18 @@
 
 A decentralized book rights management platform with encrypted licensing terms using Fully Homomorphic Encryption (FHE). Built with FHEVM, Hardhat, and Next.js.
 
+## 🚀 Live Demo
+
+**[Try Crystal Keys Live](https://crystal-keys.vercel.app/)** 
+
+Experience the power of encrypted book rights management with FHE technology.
+
+## 🎥 Demo Video
+
+https://github.com/user-attachments/assets/demo.mp4
+
+Watch the full demonstration of Crystal Keys features including book registration, encryption, and decryption workflows.
+
 ## ✨ Features
 
 - 🔐 **Encrypted Licensing Terms**: Pricing tiers and distribution windows are encrypted using FHE
@@ -160,7 +172,65 @@ crystal-keys/
 | `pnpm start`  | Run production server            |
 | `pnpm lint`   | Lint frontend code               |
 
-## 📚 Documentation
+## � How FHE Works in Crystal Keys
+
+### Encryption Flow
+
+1. **User Input**: Publisher enters book details and licensing terms
+2. **Wallet Signature**: User signs a message to authorize the operation
+3. **Client-side Encryption**: FHEVM SDK encrypts pricing tier and distribution window
+4. **On-chain Storage**: Encrypted values stored as `euint8` in smart contract
+5. **Privacy Guaranteed**: Only encrypted data is visible on-chain
+
+### Decryption Flow
+
+1. **Request Access**: User clicks "Decrypt Rights" on a book
+2. **Wallet Signature**: User signs a decryption request
+3. **Authorization Check**: Contract verifies user is the book owner
+4. **Relayer Decryption**: FHEVM relayer decrypts the values
+5. **Display**: Plaintext licensing terms shown to authorized user
+
+### Privacy Features
+
+- **Encrypted Storage**: Pricing tiers and distribution windows stored as encrypted integers
+- **Owner-only Access**: Only book owners can decrypt their licensing terms
+- **Wallet Signatures**: Every operation requires explicit user consent
+- **No Plaintext Leakage**: Sensitive data never exposed on-chain in plaintext
+
+## 🧪 Testing
+
+### Contract Tests
+
+```bash
+# Run all contract tests
+pnpm test
+
+# Run specific test file
+npx hardhat test test/BookRightsRegistry.ts
+
+# Run with gas reporting
+REPORT_GAS=true pnpm test
+
+# Test on Sepolia testnet
+npx hardhat test --network sepolia
+```
+
+### Frontend Tests
+
+```bash
+cd frontend
+pnpm test
+```
+
+## 🛠️ Development Tips
+
+- **Local Development**: Use Hardhat's local node for faster iteration
+- **Mock FHEVM**: Frontend includes mock FHEVM for development without real encryption
+- **Type Safety**: All contracts have generated TypeScript ABIs
+- **Hot Reload**: Next.js dev server supports fast refresh
+- **Wallet Testing**: Use MetaMask or any RainbowKit-supported wallet
+
+## �📚 Documentation
 
 - [FHEVM Documentation](https://docs.zama.ai/fhevm)
 - [FHEVM Hardhat Setup Guide](https://docs.zama.ai/protocol/solidity-guides/getting-started/setup)
