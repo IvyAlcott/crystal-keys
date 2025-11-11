@@ -7,7 +7,6 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Shield, BookOpen } from "lucide-react";
-import { useToast } from "@/hooks/useToast";
 
 interface Book {
   id: string;
@@ -32,7 +31,6 @@ export const PublisherForm = ({ onSubmit, isSubmitting = false }: PublisherFormP
   const [genre, setGenre] = useState("");
   const [pricingTier, setPricingTier] = useState("");
   const [distributionWindow, setDistributionWindow] = useState("");
-  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

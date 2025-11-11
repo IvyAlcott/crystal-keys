@@ -14,7 +14,7 @@ import { useBookRights, type Book } from "@/hooks/useBookRights";
 export default function Home() {
   const [mounted, setMounted] = useState(false);
   const { isConnected } = useAccount();
-  const { registerBook, decryptBookRights, isEncrypting, isDecrypting } = useBookRights();
+  const { registerBook, decryptBookRights, isEncrypting } = useBookRights();
   
   useEffect(() => {
     setMounted(true);
