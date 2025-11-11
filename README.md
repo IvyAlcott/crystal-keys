@@ -1,7 +1,34 @@
-# FHEVM Hardhat Template
+# Crystal Keys - Encrypted Rights Distributor
 
-A Hardhat-based template for developing Fully Homomorphic Encryption (FHE) enabled Solidity smart contracts using the
-FHEVM protocol by Zama.
+A decentralized book rights management platform with encrypted licensing terms using Fully Homomorphic Encryption (FHE). Built with FHEVM, Hardhat, and Next.js.
+
+## ✨ Features
+
+- 🔐 **Encrypted Licensing Terms**: Pricing tiers and distribution windows are encrypted using FHE
+- 📚 **Book Rights Management**: Register books with confidential licensing information
+- 🔓 **Selective Decryption**: Only authorized parties can decrypt licensing terms
+- 🎨 **Modern UI**: Beautiful Next.js frontend with RainbowKit wallet integration
+- 🔑 **Wallet Signatures**: Every operation requires wallet signature for security
+- ⚡ **Real-time Updates**: Automatic refresh and state management
+- 🧪 **Fully Tested**: Comprehensive test coverage for contracts and frontend
+
+## 🏗️ Architecture
+
+### Smart Contracts
+
+- **BookRightsRegistry**: Main contract managing encrypted book rights with FHE
+  - Encrypted pricing tiers (Basic $2.99, Standard $4.99, Premium $9.99)
+  - Encrypted distribution windows (Open/Unlimited, Limited 3 months, Exclusive 6 months)
+  - Owner-based access control for decryption
+- **FHECounter**: Example contract demonstrating FHE operations
+
+### Frontend
+
+- **Next.js 15**: React framework with App Router and Turbopack
+- **RainbowKit + Wagmi**: Wallet connection and Web3 integration
+- **FHEVM SDK**: Client-side encryption/decryption utilities
+- **shadcn/ui**: Modern UI components with Tailwind CSS
+- **TypeScript**: Full type safety across the application
 
 ## Quick Start
 
@@ -15,10 +42,12 @@ For detailed instructions see:
 
 ### Installation
 
+#### Backend (Smart Contracts)
+
 1. **Install dependencies**
 
    ```bash
-   npm install
+   pnpm install
    ```
 
 2. **Set up environment variables**
@@ -36,8 +65,8 @@ For detailed instructions see:
 3. **Compile and test**
 
    ```bash
-   npm run compile
-   npm run test
+   pnpm compile
+   pnpm test
    ```
 
 4. **Deploy to local network**
@@ -58,35 +87,78 @@ For detailed instructions see:
    npx hardhat verify --network sepolia <CONTRACT_ADDRESS>
    ```
 
-6. **Test on Sepolia Testnet**
+#### Frontend
+
+1. **Navigate to frontend directory**
 
    ```bash
-   # Once deployed, you can run a simple test on Sepolia.
-   npx hardhat test --network sepolia
+   cd frontend
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   pnpm install
+   ```
+
+3. **Set up environment variables**
+
+   Create a `.env.local` file:
+
+   ```bash
+   NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=your_project_id
+   NEXT_PUBLIC_FHE_PUBLIC_KEY=your_fhe_public_key
+   ```
+
+4. **Run development server**
+
+   ```bash
+   pnpm dev
+   ```
+
+   The frontend will be available at `http://localhost:3000`
+
+5. **Build for production**
+
+   ```bash
+   pnpm build
+   pnpm start
    ```
 
 ## 📁 Project Structure
 
 ```
-fhevm-hardhat-template/
-├── contracts/           # Smart contract source files
-│   └── FHECounter.sol   # Example FHE counter contract
-├── deploy/              # Deployment scripts
-├── tasks/               # Hardhat custom tasks
-├── test/                # Test files
+crystal-keys/
+├── contracts/           # BookRightsRegistry, FHECounter
+├── deploy/              # Hardhat deployment scripts
+├── deployments/         # Deployment artifacts (localhost, sepolia)
+├── fhevmTemp/           # FHEVM precompiled addresses and configs
+├── frontend/            # Next.js app (UI, hooks, abi, scripts)
+├── tasks/               # Hardhat tasks (accounts, registry helpers)
+├── test/                # Contract test suites
 ├── hardhat.config.ts    # Hardhat configuration
-└── package.json         # Dependencies and scripts
+└── package.json         # Root dependencies and scripts
 ```
 
 ## 📜 Available Scripts
 
-| Script             | Description              |
-| ------------------ | ------------------------ |
-| `npm run compile`  | Compile all contracts    |
-| `npm run test`     | Run all tests            |
-| `npm run coverage` | Generate coverage report |
-| `npm run lint`     | Run linting checks       |
-| `npm run clean`    | Clean build artifacts    |
+### Root
+
+| Script           | Description                   |
+| ---------------- | ----------------------------- |
+| `pnpm compile`   | Compile all contracts         |
+| `pnpm test`      | Run all contract tests        |
+| `pnpm lint`      | Run linting checks            |
+| `pnpm clean`     | Clean build artifacts         |
+
+### Frontend (`frontend/`)
+
+| Script        | Description                      |
+| ------------- | -------------------------------- |
+| `pnpm dev`    | Start Next.js dev server         |
+| `pnpm build`  | Build frontend for production    |
+| `pnpm start`  | Run production server            |
+| `pnpm lint`   | Lint frontend code               |
 
 ## 📚 Documentation
 
@@ -97,14 +169,14 @@ fhevm-hardhat-template/
 
 ## 📄 License
 
-This project is licensed under the BSD-3-Clause-Clear License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## 🆘 Support
 
-- **GitHub Issues**: [Report bugs or request features](https://github.com/zama-ai/fhevm/issues)
+- **FHEVM Issues**: [Zama FHEVM GitHub](https://github.com/zama-ai/fhevm/issues)
 - **Documentation**: [FHEVM Docs](https://docs.zama.ai)
 - **Community**: [Zama Discord](https://discord.gg/zama)
 
 ---
 
-**Built with ❤️ by the Zama team**
+**Built with 🔐 using FHEVM by Zama**
