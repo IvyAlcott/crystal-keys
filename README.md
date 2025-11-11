@@ -10,7 +10,6 @@ Experience the power of encrypted book rights management with FHE technology.
 
 ## 🎥 Demo Video
 
-https://github.com/user-attachments/assets/demo.mp4
 
 <video src="demo.mp4" controls></video>
 
