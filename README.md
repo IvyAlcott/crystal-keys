@@ -12,6 +12,8 @@ Experience the power of encrypted book rights management with FHE technology.
 
 https://github.com/user-attachments/assets/demo.mp4
 
+<video src="demo.mp4" controls></video>
+
 Watch the full demonstration of Crystal Keys features including book registration, encryption, and decryption workflows.
 
 ## ✨ Features
