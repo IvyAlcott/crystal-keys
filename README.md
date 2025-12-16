@@ -4,7 +4,7 @@ A decentralized book rights management platform with encrypted licensing terms u
 
 ## 🚀 Live Demo
 
-**[Try Crystal Keys Live](https://crystal-keys.vercel.app/)** 
+**[Try Crystal Keys Live](https://crystal-keys-two.vercel.app/)** 
 
 Experience the power of encrypted book rights management with FHE technology.
 
